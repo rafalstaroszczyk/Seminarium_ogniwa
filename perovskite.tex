@@ -1,0 +1,249 @@
+\documentclass[xcolor]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[polish]{babel}
+\usepackage{csquotes}
+\usepackage[sorting=none,giveninits=true]{biblatex}
+\addbibresource{bibliography.bib}
+\usepackage{float}
+\usepackage{xcolor}  % kolory motywu
+\usepackage{tikz}
+\usetikzlibrary{angles}
+\usetikzlibrary{quotes}
+\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{calligraphy}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{calc}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\pgfplotsset{compat=1.9}
+\usepackage{amsmath}  % równania
+\usepackage{amssymb}
+\usepackage{bbold}
+\usepackage{physics2}  % pochodne, macierze itp
+\usephysicsmodule{ab}
+\usephysicsmodule{diagmat}
+\usephysicsmodule{xmat}
+\usephysicsmodule{nabla.legacy}
+\usephysicsmodule{op.legacy}
+\usefonttheme[onlymath]{serif}
+\makeatletter
+%\newcommand\vb[1]{\@ifstar\boldsymbol\mathbf{#1}}
+\newcommand\vb[1]{\@ifstar\boldsymbol\mathbf{#1}}
+\newcommand\va[1]{\@ifstar{\vec{#1}}{\vec{\mathrm{#1}}}}
+\newcommand\vu[1]{%
+\@ifstar{\hat{\boldsymbol{#1}}}{\hat{\boldsymbol{#1}}}}
+\makeatother
+\usepackage{fixdif, derivative}  % pochodne
+\usepackage[version=4]{mhchem}
+\title{Perowskitowe ogniwa słoneczne - na jakim etapie technologicznym jesteśmy?}
+\author{Rafał Staroszczyk}
+\date{}
+\usetheme{Hannover}
+\usecolortheme{spruce}
+
+\DeclareMathOperator{\Col}{Col}
+\DeclareMathOperator{\Nul}{Nul}
+\DeclareMathOperator{\arctg}{arctg}
+\DeclareMathOperator{\tgh}{tgh}
+
+
+\setlength{\abovedisplayskip}{0pt}
+\setlength{\belowdisplayskip}{0pt}
+\setlength{\abovedisplayshortskip}{0pt}
+\setlength{\belowdisplayshortskip}{0pt}
+
+\newcommand{\inv}[1]{\frac{1}{#1}}
+
+\begin{document}
+\maketitle
+\begin{frame}{Spis treści}
+\tableofcontents
+\end{frame}
+
+\section{Struktura perowskitu}
+\begin{frame}{Struktura perowskitu}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{"perovskite".png}
+\caption{Ogólna struktura perowskitu: \ce{ABX3}, \cite{optoelectronic_devices}}
+\end{figure}
+\end{column}
+
+\begin{column}{0.5\textwidth}
+\begin{block}{}
+Pierwiastek \ce{A} umieszczony jest w wierzchołkach \\
+Pierwiastek \ce{X} umieszczony jest w środkach ścian \\
+Pierwiastek \ce{B} umieszczony jest w środku sześcianu
+\end{block}
+\begin{block}{Różne jony}
+\begin{tabular}{rl}
+1:2 & \ce{A^{+}B^{2+}X^{-}3} \\
+2:4 & \ce{A^{2+}B^{4+}X^{2-}3} \\
+3:3 & \ce{A^{3+}B^{3+}X^{2-}3} \\
+1:5 & \ce{A^{+}B^{5+}X^{2-}3}
+\end{tabular}
+\end{block}
+\end{column}
+\end{columns}
+\end{frame}
+
+\section{Zastosowanie perowskitów}
+\begin{frame}{Zastosowanie perowskitów}
+\begin{block}{Zastosowania \cite{optoelectronic_devices}}
+\begin{enumerate}
+\item Fotodioda
+\item Dioda elektroluminescencyjna
+\item Laser
+\item Ogniwo fotowoltaiczne
+\item Memrystor
+\item Pressure-induced emission devices
+\end{enumerate}
+\end{block}
+\end{frame}
+
+\section{Perowskity halogenkowe}
+\subsection{Stabilność strukturalna perowskitów 3D}
+\begin{frame}{Stabilność strukturalna}
+\begin{block}{Goldschmidt tolerance factor}
+\begin{equation}
+\tau = \frac{r_A + r_X}{\sqrt{2}\pab{r_B + r_X}}
+\end{equation}
+\end{block}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{"goldschmidt".png}
+\caption{Tolerance factor dla wybranych jonów \ce{A} w \ce{APbI3} \cite{miyasaka}}
+\end{figure}
+\end{frame}
+
+\section{Perowskit quasi-2D}
+\begin{frame}{Perowskit quasi-2D \cite{ding}}
+%\begin{block}{Dlaczego}
+%Perowskity quasi-2D wykazują wyższą odporność na warunki zewnętrzne
+%\end{block}
+\begin{block}{Struktury}
+Może występować w kilku strukturach:
+\begin{enumerate}
+\item Ruddlesden-Popper (R-P)
+\item Dion-Jacobson (D-J)
+\item Alternating Cation in Interlayer space (ACI)
+\item Aurivillius (AV)
+\end{enumerate}
+\end{block}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{"3d2d".png}
+\caption{Perowskity 3D oraz 2D \cite{optoelectronic_devices}}
+\end{figure}
+\end{frame}
+
+\subsection{Ruddlesden-Popper (R-P)}
+\begin{frame}{Ruddlesden-Popper (R-P)}
+\begin{block}{Wzór}
+\ce{{A'}^{+}2 A^{+}_{n-1} B^{2+}_{n} X^{-}_{3n+1}}
+\end{block}
+\begin{block}{Przykładowe kationy}
+\begin{enumerate}
+\item Butyloamina (BA; \ce{CH3(CH2)3NH3^+})
+\item Fenyloetyloamina (PEA; \ce{Ph(CH2)2NH3^+})
+\end{enumerate}
+\end{block}
+\end{frame}
+
+\subsection{Dion-Jacobson (D-J)}
+\begin{frame}{Dion-Jacobson (D-J)}
+\begin{block}{Wzór}
+\ce{{A'}^{2+} A^{+}_{n-1} B^{2+}_{n} X^{-}_{3n+1}}
+\end{block}
+\begin{block}{Przykładowe kationy}
+\begin{enumerate}
+\item Propylodiamina (PDA; \ce{NH3^+(CH2)3NH3^+})
+\item 3-(aminomethyl)pyridine (3AMP)
+\end{enumerate}
+\end{block}
+\end{frame}
+
+\subsection{Alternating Cation in Interlayer space (ACI)}
+\begin{frame}{Alternating Cation in Interlayer space (ACI)}
+\begin{block}{Wzór}
+\ce{{A'}^{+} A^{+}_{n} B^{2+}_{n} X^{-}_{3n+1}}
+\end{block}
+\begin{block}{Kationy}
+\begin{enumerate}
+\item Guanidinium (GA; \ce{C(NH2)^{+}3})
+\end{enumerate}
+\end{block}
+\end{frame}
+
+\subsection{Ogniwo quasi-2D}
+\begin{frame}{Ogniwo quasi-2D}
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{"ogniwo2d".png}
+\caption{Ogniwo na bazie perowskitu quasi-2D \cite{ding}}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{"degradacja2d".png}
+\caption{Stabilność różnych konfiguracji \cite{ding}}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{"strukturaRPDJ".png}
+\caption{Badane struktury R-P oraz D-J \cite{ding}}
+\end{figure}
+\end{frame}
+
+\subsection{Ogniwo hybrydowe 2D/3D}
+\begin{frame}{Ogniwo hybrydowe 2D/3D}
+Poprzez zmieszanie roztworu perowskitów 2D i 3D można otrzymać strukturę hybrydową. Stabilizuje to perowskity \ce{FA}.
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{"ogniwohybr2d3d".png}
+\caption{Ogniwo hybrydowe 2D/3D \cite{ding}}
+\end{figure}
+\end{frame}
+
+\section{Perowskity halogenkowe nieorganiczne}
+\begin{frame}{Perowskity halogenkowe nieorganiczne}
+Najważniejszym perowskitem w tej grupie jest \ce{CsPbI3}, lecz jest on niestabilny. Można to poprawić na kilka sposobów.
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{"fazycspbi3".png}
+\caption{Fazy \ce{CsPbI3} \cite{miyasaka}}
+\end{figure}
+\end{frame}
+
+\subsection{Podmiana X}
+\begin{frame}{Podmiana X \cite{miyasaka}}
+Perowskity \ce{CsPbCl3} oraz \ce{CsPbBr3} są stabilniejsze, ale mają wyższą przerwę energetyczną, przez co mniej się nadają w zastosowaniu do ogniw fotowoltaicznych. Można spróbować częściowego podstawienia.
+\begin{center}
+\ce{CsPbI_{3-x}Br_{x}}
+\end{center}
+Podwyższona wartość przerwy energetycznej perowskitów takich jak \ce{CsPbI2Br} oraz zwiększona stabilność może być wykorzystana w ogniwach tandemowych.
+\end{frame}
+
+\subsection{Podmiana B}
+\begin{frame}{Podmiana B \cite{miyasaka, ding}}
+Alternatywą jest podstawienie innego metalu w miejsce \ce{Pb}. Ma to dodatkową zaletę zmniejszenia ilości ołowiu. Przykładowo \ce{Sn^{2+}}; utlenia się do \ce{Sn^{4+}}, ale tworzy \ce{Cs2SnI6}.
+\begin{block}{Podwójny perowskit}
+\ce{Cs2{M'}^{+}{M''}^{3+}X6}
+\end{block}
+Teoretycznie \ce{Cs2AgInBr6} może osiągnąć wydajność $28\%$. W praktyce sprawność nie przekracza kilku procent.
+\end{frame}
+
+\subsection{Podmiana A}
+\begin{frame}{Podmiana A \cite{miyasaka}}
+Podmiana części \ce{Cs} na inny metal może zwiększyć stabilność i wydajność. Przykładowo \ce{Cs_{0.99}Rb_{0.01}PbI2Br} osiągnął rekordową sprawność $17,16\%$.
+\end{frame}
+
+\begin{frame}{Bibliography}
+\printbibliography
+\end{frame}
+\end{document}
